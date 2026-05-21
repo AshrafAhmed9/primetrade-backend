@@ -18,13 +18,13 @@ export const list = async (req: Request, res: Response) => {
 };
 
 export const getOne = async (req: Request, res: Response) => {
-  const task = await getTaskById(req.params.id, req.user!.userId, req.user!.role);
+  const task = await getTaskById(String(req.params.id), req.user!.userId, req.user!.role);
   successResponse(res, task);
 };
 
 export const update = async (req: Request, res: Response) => {
   const task = await updateTask(
-    req.params.id,
+    String(req.params.id),
     req.body,
     req.user!.userId,
     req.user!.role,
@@ -34,6 +34,6 @@ export const update = async (req: Request, res: Response) => {
 };
 
 export const remove = async (req: Request, res: Response) => {
-  await deleteTask(req.params.id, req.user!.userId, req.user!.role);
+  await deleteTask(String(req.params.id), req.user!.userId, req.user!.role);
   successResponse(res, null, 'Task deleted');
 };
