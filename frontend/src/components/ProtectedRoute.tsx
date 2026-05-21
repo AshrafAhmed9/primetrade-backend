@@ -1,9 +1,11 @@
 import { Navigate } from 'react-router-dom';
+import type { ReactNode } from 'react';
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
   adminOnly?: boolean;
 }
+
 
 const ProtectedRoute = ({ children, adminOnly = false }: Props) => {
   const userStr = localStorage.getItem('user');

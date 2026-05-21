@@ -1,4 +1,6 @@
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, useEffect } from 'react';
+import type { FormEvent } from 'react';
+
 import Layout from '../components/Layout';
 import api from '../services/api';
 

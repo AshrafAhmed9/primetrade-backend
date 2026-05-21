@@ -1,7 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
+import type { ReactNode } from 'react';
 import api from '../services/api';
 
-interface Props { children: React.ReactNode }
+interface Props { children: ReactNode }
+
 
 const Layout = ({ children }: Props) => {
   const navigate = useNavigate();
