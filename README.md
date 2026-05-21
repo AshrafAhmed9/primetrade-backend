@@ -2,7 +2,7 @@
 
 A production-grade REST API with JWT authentication, role-based access control, and task management — built as a backend developer intern assignment.
 
-**Live Demo:** https://primetrade-backend-x9il.vercel.app
+**Live Demo:** https://primetrade-backend-x9il.vercel.app  
 **API Docs (Swagger):** https://primetrade-backend-production.up.railway.app/api/docs
 
 > Demo credentials: `admin@primetrade.ai / Admin123` · `demo@primetrade.ai / User1234`
@@ -136,23 +136,28 @@ src/
 └── types/           # Express type extensions
 Engineering Decisions
 Why httpOnly cookies over localStorage for JWT?
+
 Cookies with httpOnly flag are inaccessible to JavaScript, making them immune to XSS attacks. localStorage tokens can be stolen by any injected script.
 
 Why refresh token rotation?
+
 Each refresh token is single-use. If a token is stolen and used, the legitimate user's next refresh invalidates the stolen token — limiting the attack window.
 
 Why Prisma over raw SQL?
+
 Type-safe queries, auto-generated migrations, and a clean schema definition in one file. Prevents SQL injection by design.
 
 Why Zod for validation?
+
 Runtime type safety that mirrors TypeScript types. Validates body, params, and query at the boundary — before any business logic runs. Unknown fields are stripped automatically.
 
 Why layered architecture (controllers → services)?
+
 Controllers handle only HTTP concerns (status codes, cookies, request parsing). Services contain business logic and are testable without HTTP context.
 
 Why pino over morgan?
+
 pino produces structured JSON logs with automatic request IDs — directly parseable by log aggregators (Datadog, CloudWatch). morgan produces human-readable strings.
 
 
 
----
