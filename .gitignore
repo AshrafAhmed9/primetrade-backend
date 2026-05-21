@@ -3,5 +3,4 @@ dist/
 .env
 frontend/node_modules/
 frontend/dist/
-prisma/migrations/
 *.js.map
